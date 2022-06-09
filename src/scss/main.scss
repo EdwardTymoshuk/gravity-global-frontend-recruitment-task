@@ -1,0 +1,74 @@
+// variables
+$dark: #121212;
+
+// extends
+%font-main {
+    font-family: 'Roboto';
+    font-style: normal;
+}
+%button-primary {
+    background: #E4C1AE;
+    border-radius: 32px;
+    width: 128px;
+    height: 48px;
+}
+// main styles
+.container {
+    position: relative;
+    display: flex;
+    width: 1440px;
+    height: 960px;
+    background: #FFFFFF;
+    &_image {
+        position: absolute;
+        width: 505px;
+        height: 330px;
+        left: 230px;
+        top: 96px;
+    }
+    &_aside {
+        position: absolute;
+        width: 380px;
+        height: 250px;
+        left: 830px;
+        top: 136px;
+        &_title {
+            width: 380px;
+            height: 50px;
+            left: calc(50% - 380px/2 + 300px);
+            top: calc(50% - 50px/2 - 319px);
+            color: $dark;
+            @extend %font-main;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 120%;
+        }
+        &_content {
+            width: 380px;
+            height: 96px;
+            left: calc(50% - 380px/2 + 300px);
+            top: calc(50% - 96px/2 - 222px);
+            color: $dark;
+            @extend %font-main;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 150%;
+        }
+        button {
+            @extend %button-primary;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding: 16px 40px;
+            gap: 10px;
+            left: 830px;
+            top: 338px;
+            border: none;
+            @extend %font-main;
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 100%;
+            color: #FFFFFF;
+        }
+    }
+}
