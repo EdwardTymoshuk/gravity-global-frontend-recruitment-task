@@ -1,4 +1,9 @@
-class Article extends HTMLElement{constructor(){super()}connectedCallback(){this.innerHTML=`
+class Article extends HTMLElement {
+    constructor() {
+        super()
+    }
+    connectedCallback() {
+        this.innerHTML = `
       <article class="container">
       <section class="container_image">
           <img src="./images/sean-o-KMn4VEeEPR8-unsplash_1_s6zmfh_ar_4_3,c_fill,g_auto__c_scale,w_538.jpg"
@@ -11,4 +16,8 @@ class Article extends HTMLElement{constructor(){super()}connectedCallback(){this
           <button>Button</button>
       </section>
       </article>
-      `}}customElements.define("reusable-article",Article);
+      `
+    }
+}
+
+customElements.define('reusable-article', Article);
