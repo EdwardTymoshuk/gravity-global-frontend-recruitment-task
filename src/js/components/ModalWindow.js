@@ -8,7 +8,7 @@ class ModalWindow extends HTMLElement {
             <div class="modal-container_content">
                 <span class="close-button" aria-hidden="true">&times;</span>
                 <h1>Alert!</h1>
-                <p class="modal-container_p">You have clicked x times to related button.</p>
+                <p>You have clicked 0 times to related button.</p>
     </div>
 </div>
       `

@@ -2,7 +2,9 @@
 const articleButton = document.querySelector('.container_aside_button')
 const modal = document.querySelector(".modal-window")
 const closeButton = document.querySelector(".close-button")
-const modalContentP = document.querySelector('.modal-container_p')
+const modalContentP = document.querySelector('.modal-container p')
+const resetButtonEl = document.querySelector('.reset-button')
+
 
 //variables declaration
 let clicksCount = !!localStorage.getItem('clicksCount') ? localStorage.getItem('clicksCount') : 0
@@ -18,6 +20,11 @@ const getClicksCount = () => {
     let clicksCount = localStorage.getItem('clicksCount')
     return clicksCount
 }
+//reset clicks count
+const resetClicksCount = () => {
+    localStorage.removeItem('clicksCount')
+    window.location.reload()
+}
 //display number of clicks
 const displayClicksCount = () => {
     modalContentP.innerHTML = `You have clicked ${getClicksCount()} times to related button.`
@@ -32,12 +39,13 @@ const windowOnClick = (e) => {
         toggleModal()
     }
 }
-
 //add event listeners
 articleButton.addEventListener("click", () => {
     setClicksCount(),
     displayClicksCount(),
     toggleModal()
+   
+    getClicksCount() > 5 ? !!resetButton && !!resetButton.classList.add('visible') : !!resetButton && !!resetButton.classList.remove('visible')
 })
 closeButton.addEventListener("click", toggleModal)
 window.addEventListener("click", windowOnClick)
