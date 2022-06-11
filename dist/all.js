@@ -16,6 +16,7 @@ class Article extends HTMLElement{constructor(){super()}connectedCallback(){this
             <div class="modal-container_content">
                 <span class="close-button" aria-hidden="true">&times;</span>
                 <h1>Alert!</h1>
-                <p>You have clicked X times to related button.</p>    </div>
+                <p class="modal-container_p">You have clicked x times to related button.</p>
+    </div>
 </div>
-      `}}customElements.define("reusable-modal",ModalWindow);const articleButton=document.querySelector(".container_aside_button"),modal=document.querySelector(".modal-window"),closeButton=document.querySelector(".close-button"),toggleModal=()=>{modal.classList.toggle("show-modal")},windowOnClick=e=>{e.target===modal&&toggleModal()};articleButton.addEventListener("click",toggleModal),closeButton.addEventListener("click",toggleModal),window.addEventListener("click",windowOnClick);
+      `}}customElements.define("reusable-modal",ModalWindow);const articleButton=document.querySelector(".container_aside_button"),modal=document.querySelector(".modal-window"),closeButton=document.querySelector(".close-button"),modalContentP=document.querySelector(".modal-container_p");let clicksCount=localStorage.getItem("clicksCount")?localStorage.getItem("clicksCount"):0;const setClicksCount=()=>{clicksCount++,localStorage.setItem("clicksCount",clicksCount)},getClicksCount=()=>{return localStorage.getItem("clicksCount")},displayClicksCount=()=>{modalContentP.innerHTML=`You have clicked ${getClicksCount()} times to related button.`},toggleModal=()=>{modal.classList.toggle("show-modal")},windowOnClick=e=>{e.target===modal&&toggleModal()};articleButton.addEventListener("click",()=>{setClicksCount(),displayClicksCount(),toggleModal()}),closeButton.addEventListener("click",toggleModal),window.addEventListener("click",windowOnClick);
