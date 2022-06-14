@@ -10,9 +10,14 @@ $button-primary: #E4C1AE;
 %button-primary {
     cursor: pointer;
     background: $button-primary;
+    border: none;
     border-radius: 32px;
     width: 128px;
     height: 48px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 100%;
+    color: #FFFFFF;
 }
 %button-primary-hover {
     background-color: white;
@@ -71,12 +76,7 @@ $button-primary: #E4C1AE;
             gap: 10px;
             left: 830px;
             top: 338px;
-            border: none;
             @extend %font-main;
-            font-weight: 700;
-            font-size: 16px;
-            line-height: 100%;
-            color: #FFFFFF;
             &:hover {
                 @extend %button-primary-hover;
             }
@@ -93,60 +93,96 @@ $button-primary: #E4C1AE;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     visibility: hidden;
+    overflow: auto;
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     .modal-container {
         position: absolute;
         width: 920px;
-        height: 210px;
+        height: auto;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);  
         background: #FFFFFF;
         border-radius: 0.5rem;
         padding: 0 20px;
-        &_content {
-            width: 100%;
-            height: auto;
-            h1 {
-                @extend %font-main;
-                font-weight: 700;
-                font-size: 42px;    
-                line-height: 120%; 
-                margin-top: 20px; 
-            }
-            p {
-                @extend %font-main;
-                font-weight: 300;
-                font-size: 16px;
-                line-height: 150%;
-            }
-            .close-button {
-                float: right;
-                width: 1.5rem;
-                text-align: center;
-                cursor: pointer;
-                color: black;
-                &:hover {
-                    color: $dark;
-                    transform: scale(.8);
-                    transition: transform ease-in-out .2s;
-                }
-            }
-            button {
-                @extend %button-primary; 
-                @extend %font-main;
-                display: none;
-                font-weight: 700;
-                font-size: 16px;
-                line-height: 100%;
-                color: #FFFFFF;
-                border: none;
-                &:hover {
-                    @extend %button-primary-hover;
-                }
+    }
+    .modal-content {
+        width: 100%;
+        height: auto;
+        margin: 20px 0;
+        h1 {
+            @extend %font-main;
+            font-weight: 700;
+            font-size: 42px;    
+            line-height: 120%; 
+            margin-top: 0; 
+        }
+        p {
+            @extend %font-main;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 150%;
+        }
+        &_close-button {
+            float: right;
+            width: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            color: black;
+            &:hover {
+                color: $dark;
+                transform: scale(.8);
+                transition: transform ease-in-out .2s;
             }
         }
+        &_reset-button {
+            @extend %button-primary; 
+            @extend %font-main;
+            display: none;
+            &:hover {
+                @extend %button-primary-hover;
+            }
+        }
+        &_data-button {
+            @extend %button-primary; 
+            @extend %font-main;
+            &:hover {
+                @extend %button-primary-hover;
+            }
+        }
+        &_table {
+            @extend%font-main;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 100%;
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            thead {
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+            td, th {
+                padding: 8px;
+            }
+            tr:nth-child(even){
+                background-color: #f2f2f2;
+                &:hover {
+                    background-color: #ddd;
+                }
+            }
+            th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: $dark;
+                color: white;
+            }
+            
+        }
+
+
     }
 }
 .show-modal {
@@ -156,5 +192,8 @@ $button-primary: #E4C1AE;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 .visible {
-    display: block !important;
+    display: inline-block !important;
 }
+.tableAlign {
+    top: 80% !important;
+  }
