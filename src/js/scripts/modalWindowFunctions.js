@@ -46,7 +46,7 @@ articleButton.addEventListener("click", () => {
     displayClicksCount(),
     toggleModal()
    
-    getClicksCount() > 5 ? !!resetButton && !!resetButton.classList.add('visible') : !!resetButton && !!resetButton.classList.remove('visible')
+    getClicksCount() >= 5 ? !!resetButton && !!resetButton.classList.add('visible') : !!resetButton && !!resetButton.classList.remove('visible')
 })
 closeButton.addEventListener("click", toggleModal)
 window.addEventListener("click", windowOnClick)
