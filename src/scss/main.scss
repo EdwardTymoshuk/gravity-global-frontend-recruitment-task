@@ -209,9 +209,11 @@ $primary-color: #E4C1AE;
             td, th {
                 padding: 8px;
             }
-            tr {background-color: #fff;}
-            tr:nth-child(even){
-                background-color: #f2f2f2;
+            tr { 
+                background-color: #fff;
+                &:nth-child(even){
+                    background-color: #f2f2f2;
+                }
                 &:hover {
                     background-color: #ddd;
                 }
@@ -220,7 +222,7 @@ $primary-color: #E4C1AE;
                 padding-top: 12px;
                 padding-bottom: 12px;
                 text-align: left;
-                background-color: $dark;
+                background-color: $primary-color;
                 color: white;
             }
             
@@ -240,4 +242,12 @@ $primary-color: #E4C1AE;
 }
 .tableAlign {
     top: 85% !important;
+  }
+  .preloader {
+      display: grid;
+      justify-items: center;
+      img {
+          height: 100px;
+          width: auto;
+      }
   }
