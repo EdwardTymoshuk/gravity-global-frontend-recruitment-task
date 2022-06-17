@@ -1,5 +1,5 @@
 //get page elements
-const articleButton = document.querySelector('.container_aside_button')
+const articleButton = document.querySelector('.main-container_aside_button')
 const modal = document.querySelector(".modal-window")
 const closeButton = document.querySelector(".modal-content_close-button")
 const modalContentP = document.querySelector('.modal-container p')

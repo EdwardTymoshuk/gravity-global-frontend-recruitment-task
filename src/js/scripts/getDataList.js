@@ -1,11 +1,16 @@
 import {getApiData} from '../api/api.js'
 
 //get elemnts from page
-const dataButton = document.querySelector('.modal-content_data-button')
+const openTable = document.querySelector('.modal-content_open-table-button')
+
 
 //create table and add class
+const tableContainer = document.createElement('div')
 const table = document.createElement('table')
+
+tableContainer.classList.add('modal-content_table-container')
 table.classList.add('modal-content_table')
+
 
 //functions
 //iterate object
@@ -26,7 +31,7 @@ const iterateObject = (obj) => {
 }
 
 //add event listeners
-dataButton.addEventListener('click', async () => {
+openTable.addEventListener('click', async () => {
     const apiData = await getApiData()
 
     const tHead = document.createElement('thead')
@@ -54,6 +59,7 @@ dataButton.addEventListener('click', async () => {
         table.appendChild(tBody))
     });
 
-    modalContent.appendChild(table)
+    tableContainer.appendChild(table)
+    modalContent.appendChild(tableContainer)
     modalContainer.classList.add('tableAlign')
 })

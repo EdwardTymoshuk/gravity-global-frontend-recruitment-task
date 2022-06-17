@@ -9,7 +9,7 @@ class ModalWindow extends HTMLElement {
                 <span class="modal-content_close-button" aria-hidden="true">&times;</span>
                 <h1>Alert!</h1>
                 <p>You have clicked 0 times to related button.</p>
-                <button class="modal-content_data-button">Open table</button>
+                <button class="modal-content_open-table-button">Open table</button>
     </div>
 </div>
       `
