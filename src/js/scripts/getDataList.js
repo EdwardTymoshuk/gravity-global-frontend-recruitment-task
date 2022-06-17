@@ -1,8 +1,9 @@
 import {getApiData} from '../api/api.js'
-
+import addPreloader from './addPreloader.js'
 //get elemnts from page
 const openTable = document.querySelector('.modal-content_open-table-button')
 
+let apiData = ''
 
 //create table and add class
 const tableContainer = document.createElement('div')
@@ -30,9 +31,10 @@ const iterateObject = (obj) => {
     return result
 }
 
-//add event listeners
-openTable.addEventListener('click', async () => {
-    const apiData = await getApiData()
+
+
+const setApiData = async () => {
+    apiData = await getApiData()
 
     const tHead = document.createElement('thead')
     const tBody = document.createElement('tbody')
@@ -62,4 +64,11 @@ openTable.addEventListener('click', async () => {
     tableContainer.appendChild(table)
     modalContent.appendChild(tableContainer)
     modalContainer.classList.add('tableAlign')
+    const preloaderEl = document.querySelector('.preloader')
+    preloaderEl.style.display = 'none'
+}
+
+//add event listeners
+openTable.addEventListener('click', () => {
+    !apiData && (addPreloader(modalContent), setApiData())
 })
