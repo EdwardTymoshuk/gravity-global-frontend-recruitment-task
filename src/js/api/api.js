@@ -10,6 +10,6 @@ export const getApiData = async () => {
     try {
         return await fetch(url, settings).then(res => res.json())
     } catch (err) {
-        console.err(err)
+         alert(`Somthing went wrong. Try later. ERROR: ${err.message}`)
     }
 }
