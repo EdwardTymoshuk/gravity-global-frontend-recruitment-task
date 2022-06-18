@@ -8,7 +8,7 @@ const modal = document.querySelector(".modal-window")
 const closeButton = document.querySelector(".modal-content_close-button")
 const modalContentP = document.querySelector('.modal-container p')
 const modalContent = document.querySelector('.modal-content')
-const openTable = document.querySelector('.modal-content_open-table-button')
+const openTableButton = document.querySelector('.modal-content_open-table-button')
 
 //variables declaration
 let clicksCount = !!localStorage.getItem('clicksCount') ? localStorage.getItem('clicksCount') : 0
@@ -58,6 +58,6 @@ articleButton.addEventListener("click", () => {
 })
 closeButton.addEventListener("click", toggleModal)
 window.addEventListener("click", windowOnClick)
-openTable.addEventListener("click", () => {
+openTableButton.addEventListener("click", () => {
     (addPreloader(modalContent), addTable())
 })
