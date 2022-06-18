@@ -68,6 +68,7 @@ export const addTable = () => {
         (tableContainer.appendChild(table),
         modalContent.appendChild(tableContainer))
 
+        //make open table button disabled
         openTableButton.disabled = true
         //remove preloader
         removePreloader()
