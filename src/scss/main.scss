@@ -12,8 +12,8 @@ $primary-color: #E4C1AE;
     background: $primary-color;
     border: none;
     border-radius: 32px;
-    width: 128px;
-    height: 48px;
+    min-width: 128px;
+    min-height: 48px;
     font-weight: 700;
     font-size: 16px;
     line-height: 100%;
@@ -32,7 +32,7 @@ $primary-color: #E4C1AE;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(8, 1fr);
-    grid-column-gap: 0px;
+    grid-column-gap: 0px; 
     grid-row-gap: 0px;
     width: 100%;
     max-width: 1440px;
@@ -73,12 +73,9 @@ $primary-color: #E4C1AE;
         align-self: center;
         @include devices(tablet) {
             grid-area: 2 / 1 / 3 / 2;
-            left: 0;
-            top: 0;
             background: #fff;
             width: 100%;
             height: auto;
-            padding-top: 20px;
         }
         &_title {
             color: $dark;
@@ -107,11 +104,6 @@ $primary-color: #E4C1AE;
             align-items: flex-start;
             padding: 16px 40px;
             gap: 10px;
-            left: 830px;
-            top: 338px;
-            @include devices(tablet) {
-                margin: 10px;
-            }
             &:hover {
                 @extend %button-primary-hover;
             }
@@ -181,7 +173,7 @@ $primary-color: #E4C1AE;
         }
         &_reset-button {
             @extend %button-primary; 
-            display: none;
+            display: inline-block;
             &:hover {
                 @extend %button-primary-hover;
             }
@@ -225,29 +217,27 @@ $primary-color: #E4C1AE;
                 background-color: $primary-color;
                 color: white;
             }
-            
         }
-
-
     }
 }
+//preloader
+.preloader {
+    display: grid;
+    justify-items: center;
+    img {
+          height: 100px;
+          width: auto;
+    }
+}
+//additional styles
+//show modal
 .show-modal {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-.visible {
-    display: inline-block !important;
-}
+//aligh table
 .tableAlign {
     top: 85% !important;
-  }
-  .preloader {
-      display: grid;
-      justify-items: center;
-      img {
-          height: 100px;
-          width: auto;
-      }
   }
