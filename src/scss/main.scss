@@ -5,6 +5,7 @@
 // variables
 $dark: #121212;
 $primary-color: #E4C1AE;
+$disabled-color: #FAF3F0;
 
 // extends
 %button-primary {
@@ -237,7 +238,12 @@ $primary-color: #E4C1AE;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-//aligh table
-.tableAlign {
-    top: 85% !important;
+button:disabled,
+button[disabled] {
+  background-color: $disabled-color !important;
+  &:hover {
+    box-shadow: none !important;
+    color: white !important;
+    cursor: not-allowed;
   }
+}
